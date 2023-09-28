@@ -1,49 +1,32 @@
-ALGORITHM algorithm_name
-VAR
-    set_declarations
-BEGIN
-    set_instructions
-END
 
-
-
-program InsertionSort1;
-
-procedure InsertionSort(var arr: array of Integer);
-var
-  n, i, j, current_element: Integer;
-begin
-  n := Length(arr);
-  for i := 1 to n - 1 do
-  begin
-    current_element := arr[i];
-    j := i - 1;
-    while (j >= 0) and (current_element < arr[j]) do
-    begin
+ALGORITHM InsertionSort1;
+arr: array of Integer;
+n,i,j:integer;
+BEGIN 
+// this is the procedure inserttionsort1
+   procedure InsertionSort1(var arr: array of Integer);
+     var
+     n, i, j, element: Integer;
+     begin
+     n := Length(arr);
+     for i := 1 to n - 1 do
+      begin
+       element := arr[i];
+       j := i - 1;
+       while (j >= 0) and (element < arr[j]) do
+       begin
       arr[j + 1] := arr[j];
       j := j - 1;
+       end;
+       arr[j + 1] := element;
+      end;
     end;
-    arr[j + 1] := current_element;
-  end;
-end;
 
-var
-  my_array: array of Integer;
-  i: Integer;
-begin
-  // Exemple d'utilisation :
-  SetLength(my_array, 5);
-  my_array[0] := 5;
-  my_array[1] := 2;
-  my_array[2] := 9;
-  my_array[3] := 3;
-  my_array[4] := 6;
+  InsertionSort1(arr: array of Integer);
 
-  InsertionSort(my_array);
+  for i := 0 to Length(arr) - 1 do
+    Write(arr[i], ' ');
 
-  // Affichage du tableau trié
-  for i := 0 to Length(my_array) - 1 do
-    Write(my_array[i], ' ');
-
-  // Affichera "2 3 5 6 9"
+  
 end.
+END
